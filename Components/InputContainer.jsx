@@ -4,6 +4,7 @@ import { useState } from "react";
 const InputContainer = ({ setPlayers, players, setDisableGenerateButton }) => {
   const [enteredPlayerText, setEnteredPlayerText] = useState("");
   const [enteredRatingText, setEnteredRatingText] = useState("");
+  const [playerKeyNumber, setPlayerKeyNumber] = useState(0);
 
   const playerTextInputHandler = (enteredText) => {
     setEnteredPlayerText(enteredText);
@@ -14,6 +15,7 @@ const InputContainer = ({ setPlayers, players, setDisableGenerateButton }) => {
   };
 
   const addPlayerButton = () => {
+    console.log(playerKeyNumber);
     if (
       enteredPlayerText !== "" &&
       enteredRatingText !== "" &&
@@ -25,11 +27,13 @@ const InputContainer = ({ setPlayers, players, setDisableGenerateButton }) => {
         ...currentPlayers,
         {
           playerName: enteredPlayerText,
-          playerKey: players.length,
+          playerKey: playerKeyNumber,
           playerRating: enteredRatingText,
         },
       ]);
-
+      setPlayerKeyNumber((currentPlayerKeyNumber) => {
+        return currentPlayerKeyNumber + 1;
+      });
       if (players.length === 9) {
         setDisableGenerateButton(false);
       }

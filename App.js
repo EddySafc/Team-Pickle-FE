@@ -8,17 +8,7 @@ import InputContainer from "./Components/InputContainer";
 import PlayersList from "./Components/PlayersList";
 import ExecuteButtons from "./Components/ExecuteButtons";
 import TeamDisplay from "./Components/TeamDisplay";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Button,
-  ScrollView,
-  Modal,
-  Pressable,
-  ImageBackground,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -56,7 +46,7 @@ export default function App() {
               },
             }}
             name="Add Player"
-            component={() => (
+            children={() => (
               <InputContainer
                 setDisableGenerateButton={setDisableGenerateButton}
                 setPlayers={setPlayers}
@@ -77,7 +67,7 @@ export default function App() {
               },
             }}
             name="Player List"
-            component={() => {
+            children={() => {
               return (
                 <View style={styles.players_tab}>
                   <PlayersList

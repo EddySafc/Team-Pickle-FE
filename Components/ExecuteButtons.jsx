@@ -89,8 +89,13 @@ const ExecuteButtons = ({
 
     setTeamOneAverageRating(teamOneAverageRating);
     setTeamTwoAverageRating(teamTwoAverageRating);
-    setDisableGenerateButton(true);
-    setModalIsVisible(true);
+    if (
+      teamOneAverageRating - teamTwoAverageRating < 0.8 &&
+      teamOneAverageRating - teamTwoAverageRating > -0.8
+    ) {
+      setDisableGenerateButton(true);
+      setModalIsVisible(true);
+    } else generateTeams();
   };
 
   return (
@@ -113,72 +118,13 @@ const ExecuteButtons = ({
           }}
         />
       </View>
-      <Button
-        title="auto"
-        color="blue"
-        onPress={() => {
-          setPlayers([
-            {
-              playerName: "Eddy",
-              playerKey: 1,
-              playerRating: 10,
-            },
-            {
-              playerName: "Jack",
-              playerKey: 2,
-              playerRating: 7,
-            },
-            {
-              playerName: "Fraser",
-              playerKey: 3,
-              playerRating: 6,
-            },
-            {
-              playerName: "Mike",
-              playerKey: 4,
-              playerRating: 7,
-            },
-            {
-              playerName: "Robin",
-              playerKey: 5,
-              playerRating: 8,
-            },
-            {
-              playerName: "Alex",
-              playerKey: 6,
-              playerRating: 9,
-            },
-            {
-              playerName: "Adam",
-              playerKey: 7,
-              playerRating: 7,
-            },
-            {
-              playerName: "Stu",
-              playerKey: 8,
-              playerRating: 5,
-            },
-            {
-              playerName: "Kyle",
-              playerKey: 9,
-              playerRating: 8,
-            },
-            {
-              playerName: "Mark",
-              playerKey: 10,
-              playerRating: 4,
-            },
-          ]),
-            setDisableGenerateButton(false);
-        }}
-      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   bottom_buttons: { flexDirection: "row" },
-  buttons: { paddingLeft: 10, paddingRight: 10 },
+  buttons: { paddingLeft: 32, paddingRight: 10 },
 });
 
 export default ExecuteButtons;

@@ -6,6 +6,7 @@ const PlayersList = ({ players, setPlayers, setDisableGenerateButton }) => {
       <Text style={styles.text}>Players Selected:</Text>
       {players.map((player) => (
         <Pressable
+          key={player.playerKey}
           onPress={() => {
             setPlayers((currentPlayers) => {
               return currentPlayers.filter((playersName) => {
