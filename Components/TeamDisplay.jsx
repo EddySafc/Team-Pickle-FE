@@ -26,7 +26,7 @@ const TeamDisplay = ({
             Team One: (average rating - {teamOneAverageRating})
           </Text>
           {teamOne.map((player) => (
-            <Text key={player} style={styles.player_text}>
+            <Text key={player.playerKey} style={styles.player_text}>
               {player}
             </Text>
           ))}
@@ -36,7 +36,7 @@ const TeamDisplay = ({
             Team Two: (average rating - {teamTwoAverageRating})
           </Text>
           {teamTwo.map((player) => (
-            <Text key={player} style={styles.player_text}>
+            <Text key={player.playerKey} style={styles.player_text}>
               {player}
             </Text>
           ))}

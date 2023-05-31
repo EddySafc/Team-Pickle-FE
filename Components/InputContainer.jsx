@@ -15,7 +15,6 @@ const InputContainer = ({ setPlayers, players, setDisableGenerateButton }) => {
   };
 
   const addPlayerButton = () => {
-    console.log(playerKeyNumber);
     if (
       enteredPlayerText !== "" &&
       enteredRatingText !== "" &&
